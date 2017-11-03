@@ -2,16 +2,20 @@ function Pizza(size, toppings){
   this.size = size;
   this.toppings = toppings;
   switch (size) {
-    case "small": this.cost = 12;
+    case "small": this.sizeCost = 12;
     break;
-    case "medium": this.cost = 15;
+    case "medium": this.sizeCost = 15;
     break;
-    case "large": this.cost = 20;
+    case "large": this.sizeCost = 20;
     break;
   default:
     console.log('pizza constructor error');
   }
 }
+
+Pizza.prototype.totalCost = function () {
+  this.totalCost = this.sizeCost + this.toppings.length * 2;
+};
 
 // FRONTEND
 $(function () {
@@ -22,15 +26,13 @@ $(function () {
     var toppings = [];
     $('input.pizza-toppings:checked').each(function(){
       toppings.push($(this).val());
-      console.log(toppings);
     });
-    console.log(toppings);
-    var pizza = new Pizza(size);
+    var pizza = new Pizza(size, toppings);
     order.push(pizza);
     console.log(order);
-    order.forEach(function(item){
-      console.log(item.size);
-      $('#confirm-order').append('<p>' + item.size + '<br>$' + item.cost + '</p>');
+    order.forEach(function(pizza){
+      pizza.totalCost();
+      $('#confirm-order').append('<p>' + pizza.size + '<br>w/ ' + pizza.toppings.join(", ") + '</p>');
     });
   });
 });
