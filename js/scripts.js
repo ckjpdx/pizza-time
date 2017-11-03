@@ -14,26 +14,25 @@ function Pizza(size, toppings){
     console.log('pizza constructor error');
   }
 }
-
 Pizza.prototype.totalCost = function () {
   this.totalCost = this.sizeCost + this.toppings.length * 2;
 };
 
-function Order() = [];
-
-Order.prototype.totalCost = function () {
+function orderTotal(order){
   var runningTotal = 0;
-  this.forEach(function(pizza){
-    pizza.totalCost += runningTotal;
+  order.forEach(function(pizza){
+    runningTotal += pizza.totalCost;
   });
   return runningTotal;
-};
+}
 
 // FRONTEND
 $(function () {
   $('form#order-form').submit(function(event){
     event.preventDefault();
-    var order = new Order;
+    $('form#order-form').slideUp();
+    $('#confirm-order').append('<h2>pizza order:</h2>');
+    var order = [];
     $('div.new-pizza').each(function(){
       var size = $(this).children('select[name="pizza-size"]').val();
       var toppings = [];
@@ -43,12 +42,12 @@ $(function () {
       var pizza = new Pizza(size, toppings);
       order.push(pizza);
     }); // end forEach new-pizza
-    $('#confirm-order').append('<h4>' + order.length + ' pizzas ordered:</h4>');
+    $('#confirm-order').append('<h4>' + order.length + ' pizza(s) ordered:</h4>');
     order.forEach(function(pizza){
       pizza.totalCost();
       $('#confirm-order').append('<p>' + pizza.size + ' pizza<br>w/ ' + pizza.toppings.join(", ") + '</p><p><strong>$ ' + pizza.totalCost + '</strong></p><hr>');
     });
-    $('#confirm-order').append(order.totalCost());
+    $('#confirm-order').append('<h3>order total: $' + orderTotal(order) + '</h3>');
     console.log(order);
   }); // end submit form
   $('button#add-pizza').click(function(){
