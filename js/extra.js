@@ -1,3 +1,0 @@
-$(function () {
-  var morePizza = '<div class="new-pizza"><h3>select a size:</h3><input class="pizza-size" name="select-size" type="radio" value="small"><label>Small: $12</label><input class="pizza-size" name="select-size" type="radio" value="medium"><label>Medium: $15</label><input class="pizza-size" name="select-size" type="radio" value="large"><label>Large: $20</label><h3>add some toppings:</h3><p>( + $2 each )</p><input class="pizza-toppings" name="select-topping" type="checkbox" value="pepperoni"><label>add pepperoni</label><input class="pizza-toppings" name="select-topping" type="checkbox" value="olives"><label>add olives</label><input class="pizza-toppings" name="select-topping" type="checkbox" value="jalapenos"><label>add jalapeños</label></div>';
-});
