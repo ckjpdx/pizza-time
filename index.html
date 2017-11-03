@@ -11,26 +11,28 @@
   <body>
     <div class="container">
       <!-- top area -->
-      <div class="row">
+      <div class="row top-area">
         <div class="col">
+          <img class="pizza-time-img w-100" src="https://f4.bcbits.com/img/a1585009174_10.jpg" alt="Pizza Time album art">
           <h1>PIZZA TIME</h1>
-          <p>order some pizza and get nasty</p>
+          <p>...did somebody say... pizza?</p>
         </div>
       </div>
       <!-- order area starts -->
       <div id="order-div" class="row">
         <div class="col">
-          <button id="delivery-button" type="button">delivery?</button>
+          <button class="btn" id="delivery-button" type="button">delivery?</button>
           <div id="delivery-div">
             <p>a $3 delivery fee per pizza goes to our motorcycle ninja</p>
             <input id="delivery-name" type="text" placeholder="name">
             <input id="delivery-address" type="text" placeholder="address">
             <input id="delivery-phone" type="text" placeholder="phone">
           </div>
-          <h2>order here:</h2>
+          <h2 class="white-font">order here:</h2>
           <form id="order-form">
             <div class="new-pizza">
-              <h3>select a size:</h3>
+              <h3>new pizza</h3>
+              <p>select size:</p>
               <select name="pizza-size">
                 <option value="small">small $12</option>
                 <option value="medium">medium $15</option>
@@ -45,8 +47,8 @@
               <input class="pizza-toppings" name="select-topping" type="checkbox" value="jalapenos">
               <label>add jalapeños</label>
             </div>
-            <button id="add-pizza" type="button">more pizza</button>
-            <button id="submit-order" type="submit">PIZZA TIME</button>
+            <button class="btn" id="add-pizza" type="button">+1 pizza</button>
+            <button class="btn" id="submit-order" type="submit">PIZZA TIME</button>
           </form>
         </div>
       </div>

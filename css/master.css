@@ -1,6 +1,27 @@
+body {
+  background-color: #df524b;
+}
+
+button {
+  box-shadow: -5px -5px #1892a0;
+}
+
+.top-area, .white-font{
+  color: white;
+}
+
+div.new-pizza, div#confirm-order {
+  background-color: #ffe242;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+div.col {padding: 0}
+
 div#delivery-div {
   display: none;
 }
 span.delivery-fee-span {
-
+ display: none;
 }
