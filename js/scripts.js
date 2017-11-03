@@ -41,11 +41,14 @@ $(function () {
       });
       var pizza = new Pizza(size, toppings);
       pizza.setCostBySize();
+      pizza.totalCost();
+      if (pizza.toppings.length === 0) {
+        pizza.toppings.push('no toppings');
+      }
       order.push(pizza);
     }); // end forEach new-pizza
     $('#confirm-order').append('<h4>' + order.length + ' pizza(s) ordered:</h4>');
     order.forEach(function(pizza){
-      pizza.totalCost();
       $('#confirm-order').append('<p>' + pizza.size + ' pizza<br>w/ ' + pizza.toppings.join(", ") + '</p><p><strong>$ ' + pizza.totalCost + '</strong></p><hr>');
     });
     $('#confirm-order').append('<h3>order total: $' + orderTotal(order) + '</h3>');
