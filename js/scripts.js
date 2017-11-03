@@ -63,7 +63,8 @@ $(function () {
     order.forEach(function(pizza){
       $('#confirm-order').append('<p>' + pizza.size + ' pizza<br>w/ ' + pizza.toppings.join(", ") + '<span class="delivery-fee-span"><br>delivery fee: $' + pizza.deliveryFee + '</span></p><p><strong>$ ' + pizza.totalCost + '</strong></p><hr>');
     });
-    $('#confirm-order').append('<h3>order total: $' + orderTotal(order) + '</h3>');
+    $('div#confirm-order').slideDown();
+    $('div#confirm-order').append('<h3>order total: $' + orderTotal(order) + '</h3>');
     console.log(order);
     if (isDelivery) {
       $('span.delivery-fee-span').show();

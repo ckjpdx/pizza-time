@@ -4,6 +4,15 @@ body {
 
 button {
   box-shadow: -5px -5px #1892a0;
+  border-radius: 50%;
+  background-image: url(https://orig00.deviantart.net/07d8/f/2015/024/3/f/pepperoni_texture___tileable_by_mann_of_lamancha-d8f733r.png);
+  color: white;
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+button#submit-order {
 }
 
 .top-area, .white-font{
@@ -17,11 +26,6 @@ div.new-pizza, div#confirm-order {
   padding: 10px;
 }
 
-div.col {padding: 0}
-
-div#delivery-div {
+div#delivery-div, div#confirm-order, span.delivery-fee-span {
   display: none;
-}
-span.delivery-fee-span {
- display: none;
 }
