@@ -7,15 +7,18 @@ _by Chris Johnson_
 
 This web-app will allow the user to choose a pizza size and optional toppings and display a total price and order confirmation after submitting the order.
 
-* User selects pizza size:
+* Returns order summary of an ordered pizza:
     * Input: small pizza option selected
     * Output: "Small Pizza Order confirmed: $12"
-* User selects larger pizza size:
+* Returns order summary of a different sized pizza:
     * Input: medium pizza option selected
     * Output: "Medium Pizza Order confirmed: $15"
-* User selects medium size pizza with pepperoni topping:
+* Returns order summary of a pizza with toppings:
     * Input: medium pizza and pepperoni topping options selected
     * Output: "Medium Pizza order w/ pepperoni confirmed: $15"
+* Returns order summary of multiple pizzas:
+    * Input: medium pizza and small pizza selected
+    * Output: "Medium Pizza, small pizza order confirmed: $27"
 
 ## Installation
 
