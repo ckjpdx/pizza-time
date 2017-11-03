@@ -19,12 +19,18 @@ $(function () {
     event.preventDefault();
     var order = [];
     var size = $('input.pizza-size:checked').val();
+    var toppings = [];
+    $('input.pizza-toppings:checked').each(function(){
+      toppings.push($(this).val());
+      console.log(toppings);
+    });
+    console.log(toppings);
     var pizza = new Pizza(size);
     order.push(pizza);
     console.log(order);
     order.forEach(function(item){
       console.log(item.size);
-      $('#confirm-order').append('<p>' + item.size + '</p>');
+      $('#confirm-order').append('<p>' + item.size + '<br>$' + item.cost + '</p>');
     });
   });
 });

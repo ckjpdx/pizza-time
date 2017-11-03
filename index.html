@@ -14,18 +14,29 @@
         <div class="col">
           <form id="order-form">
             <div class="new-pizza">
+              <h3>select a size:</h3>
               <input class="pizza-size" name="select-size" type="radio" value="small">
-              <label for="small-pizza">Small</label>
+              <label>Small: $12</label>
               <input class="pizza-size" name="select-size" type="radio" value="medium">
-              <label for="medium-pizza">Medium</label>
-              <button type="submit">PIZZA TIME</button>
+              <label>Medium: $15</label>
+              <input class="pizza-size" name="select-size" type="radio" value="large">
+              <label>Large: $20</label>
+              <h3>add some toppings:</h3>
+              <p>( + $2 each )</p>
+              <input class="pizza-toppings" name="select-topping" type="checkbox" value="pepperoni">
+              <label>add pepperoni</label>
+              <input class="pizza-toppings" name="select-topping" type="checkbox" value="pepperoni">
+              <label>add olives</label>
+              <input class="pizza-toppings" name="select-topping" type="checkbox" value="pepperoni">
+              <label>add jalapeños</label>
             </div>
+            <button type="submit">PIZZA TIME</button>
           </form>
         </div>
       </div>
       <div class="row">
         <div class="col" id="confirm-order">
-          <h2>Pizza Order:</h2>
+          <h2>pizza order:</h2>
         </div>
       </div>
     </div>
