@@ -5,6 +5,7 @@ var pizzaCostArr = [12, 15, 20];
 function Pizza(size, toppings){
   this.size = size;
   this.toppings = toppings;
+  this.deliveryFee = 0;
 }
 Pizza.prototype.setCostBySize = function () {
   for (var i = 0; i < pizzaSizeArr.length; i++) {
@@ -15,14 +16,17 @@ Pizza.prototype.setCostBySize = function () {
 };
 
 Pizza.prototype.totalCost = function () {
-  this.totalCost = this.sizeCost + this.toppings.length * 2;
+  this.totalCost = this.sizeCost + this.deliveryFee + this.toppings.length * 2;
 };
 
-function orderTotal(order){
+function orderTotal(order, isDelivery){
   var runningTotal = 0;
   order.forEach(function(pizza){
     runningTotal += pizza.totalCost;
   });
+  if (isDelivery) {
+    runningTotal += order.length * 3;
+  }
   return runningTotal;
 }
 
@@ -31,33 +35,35 @@ $(function () {
   $('button#delivery-button').click(function(){
     $('div#delivery-div').slideToggle();
   });
+  $('button#add-pizza').click(function(){
+    $('form#order-form').prepend(addPizza);
+  });
   $('form#order-form').submit(function(event){
     event.preventDefault();
     $('div#order-div').slideUp();
-    $('#confirm-order').append('<h2>pizza order:</h2>');
     var order = [];
-    $('div.new-pizza').each(function(){
+    $('div.new-pizza').each(function(){ // start each pizza process
       var size = $(this).children('select[name="pizza-size"]').val();
       var toppings = [];
       $(this).children('input.pizza-toppings:checked').each(function(){
         toppings.push($(this).val());
       });
       var pizza = new Pizza(size, toppings);
+      if ($('input#delivery-address').val()) {
+        pizza.deliveryFee = 3;
+      }
       pizza.setCostBySize();
       pizza.totalCost();
       if (pizza.toppings.length === 0) {
         pizza.toppings.push('no toppings');
       }
       order.push(pizza);
-    }); // end forEach new-pizza
-    $('#confirm-order').append('<h4>' + order.length + ' pizza(s) ordered:</h4>');
+    }); // end each pizza process
+    $('#confirm-order').append('<h2>pizza order:</h2><h4>' + order.length + ' pizza(s) ordered:</h4>');
     order.forEach(function(pizza){
-      $('#confirm-order').append('<p>' + pizza.size + ' pizza<br>w/ ' + pizza.toppings.join(", ") + '</p><p><strong>$ ' + pizza.totalCost + '</strong></p><hr>');
+      $('#confirm-order').append('<p>' + pizza.size + ' pizza<br>w/ ' + pizza.toppings.join(", ") + '<span class="delivery-fee-span"><br>delivery fee: $' + pizza.deliveryFee + '</span></p><p><strong>$ ' + pizza.totalCost + '</strong></p><hr>');
     });
     $('#confirm-order').append('<h3>order total: $' + orderTotal(order) + '</h3>');
     console.log(order);
   }); // end submit form
-  $('button#add-pizza').click(function(){
-    $('form#order-form').prepend(addPizza);
-  });
 });
