@@ -10,10 +10,23 @@
   </head>
   <body>
     <div class="container">
+      <!-- top area -->
       <div class="row">
         <div class="col">
           <h1>PIZZA TIME</h1>
           <p>order some pizza and get nasty</p>
+        </div>
+      </div>
+      <!-- order area starts -->
+      <div id="order-div" class="row">
+        <div class="col">
+          <button id="delivery-button" type="button">delivery?</button>
+          <div id="delivery-div">
+            <input id="delivery-name" type="text" placeholder="name">
+            <input id="delivery-address" type="text" placeholder="address">
+            <input id="delivery-phone" type="text" placeholder="phone">
+          </div>
+          <h2>order here:</h2>
           <form id="order-form">
             <div class="new-pizza">
               <h3>select a size:</h3>
@@ -36,9 +49,10 @@
           </form>
         </div>
       </div>
+      <!-- confirm area -->
       <div class="row">
         <div class="col" id="confirm-order">
-
+          <!-- confirmed order goes here -->
         </div>
       </div>
     </div>

@@ -28,9 +28,12 @@ function orderTotal(order){
 
 // FRONTEND
 $(function () {
+  $('button#delivery-button').click(function(){
+    $('div#delivery-div').slideToggle();
+  });
   $('form#order-form').submit(function(event){
     event.preventDefault();
-    $('form#order-form').slideUp();
+    $('div#order-div').slideUp();
     $('#confirm-order').append('<h2>pizza order:</h2>');
     var order = [];
     $('div.new-pizza').each(function(){
