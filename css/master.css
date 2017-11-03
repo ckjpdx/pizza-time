@@ -7,16 +7,21 @@ button {
   border-radius: 50%;
   background-image: url(https://orig00.deviantart.net/07d8/f/2015/024/3/f/pepperoni_texture___tileable_by_mann_of_lamancha-d8f733r.png);
   color: white;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 button#submit-order {
 }
 
 .top-area, .white-font{
   color: white;
+}
+
+div.crop-pizza-time-img {
+  max-height: 400px;
+  overflow: hidden;
 }
 
 div.new-pizza, div#confirm-order {
